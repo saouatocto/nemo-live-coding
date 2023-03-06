@@ -6,15 +6,23 @@ import {
 import clsx from 'clsx';
 import styles from 'components/ui/Avatar/avatar.module.css';
 
+type AvatarVariantType = 'big-ears' | 'croodles' | 'initials';
+
 interface AvatarProps {
   fullName: string;
+  variant?: AvatarVariantType;
+  scale?: number;
 }
-export const Avatar = ({ fullName }: AvatarProps) => {
+export const Avatar = ({
+  fullName,
+  variant = 'initials',
+  scale = 60,
+}: AvatarProps) => {
   return (
     <RadixAvatar className={clsx(styles.wrapper)}>
       <RadixAvatarIamge
         className={clsx(styles.avatar_image)}
-        src={`https://api.dicebear.com/5.x/initials/svg?scale=60&seed=${fullName}`}
+        src={`https://api.dicebear.com/5.x/${variant}/svg?scale=${scale}&seed=${fullName}`}
         alt={fullName}
       />
       <RadixAvatarFallback
