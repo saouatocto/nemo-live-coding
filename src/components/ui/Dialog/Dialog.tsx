@@ -10,11 +10,14 @@ export const DialogContent = React.forwardRef<
 >(({ children, ...props }, forwardedRef) => {
   return (
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay />
-      <DialogPrimitive.Content {...props} ref={forwardedRef}>
+      <DialogPrimitive.Overlay className={styles.overlay} />
+      <DialogPrimitive.Content
+        className={styles.content_wrapper}
+        {...props}
+        ref={forwardedRef}>
         {children}
         <DialogPrimitive.Close asChild>
-          <IconButton aria-label="close">
+          <IconButton className={styles.close_button} aria-label="close">
             <Cross1Icon />
           </IconButton>
         </DialogPrimitive.Close>
