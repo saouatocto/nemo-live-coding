@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '@fontsource/mulish';
-import '@fontsource/mulish/700.css';
+import 'styles/reset.css';
 import 'styles/global.css';
 import 'styles/utilities.css';
 import 'styles/variables.css';
-import 'styles/reset.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
