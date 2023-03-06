@@ -2,6 +2,7 @@ import React from 'react';
 import { UserRow } from 'components/UserRow';
 import { UserDto } from 'utils/types';
 import { Container, Stack } from 'components/ui';
+import { UserList } from 'components/UserList';
 
 const USERS_MOCK: UserDto[] = [
   {
@@ -42,12 +43,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Stack direction={'column'} spacing={4}>
-          <UserRow user={USERS_MOCK[0]} />
-          <UserRow user={USERS_MOCK[1]} />
-          <UserRow user={USERS_MOCK[2]} />
-          <UserRow user={USERS_MOCK[3]} />
-        </Stack>
+        <UserList users={USERS_MOCK} />
       </Container>
     </div>
   );

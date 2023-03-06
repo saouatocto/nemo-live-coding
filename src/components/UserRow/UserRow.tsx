@@ -9,21 +9,7 @@ import {
   BadgeStatusType,
   BADGE_STATUS,
 } from 'components/ui';
-import { getFullName } from 'utils/helpers';
-
-const resolveUserStatusColor = (user: UserDto): BadgeStatusType => {
-  const { status } = user;
-  switch (status) {
-    case 'SUSPENDED':
-      return BADGE_STATUS.WARNING;
-    case 'ACTIF':
-      return BADGE_STATUS.SUCCESS;
-    case 'DELETED':
-      return BADGE_STATUS.DANGER;
-    default:
-      return BADGE_STATUS.SUCCESS;
-  }
-};
+import {getFullName, resolveUserStatusColor, resolveUserStatusLabel} from 'utils/helpers';
 
 interface UserRowProps {
   user: UserDto;
@@ -43,8 +29,10 @@ export const UserRow = ({ user }: UserRowProps) => {
           <Text>Date de création</Text>
           <Text>{user.createdAt}</Text>
         </Stack>
-
-        <Badge label={'ACTIF'} variant={resolveUserStatusColor(user)} />
+        <Badge
+          label={resolveUserStatusLabel(user)}
+          variant={resolveUserStatusColor(user)}
+        />
       </Stack>
     </Card>
   );
